@@ -23,7 +23,7 @@
 
 
 
-        <a href="/income"> <button type="submit">Ввести доходи, грн: </button> </a>
+        <a href="/income">Ввести доходи, грн: <button type="submit">Ввести:  </button> </a>
 
 
     </div>

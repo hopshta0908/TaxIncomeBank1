@@ -12,6 +12,7 @@ public interface TaxService {
 
     public void createTax(Income income);
     public void addOrEdit(Tax tax);
+    List<Tax> findAll();
 
     public Double getTaxMainIncome(Income income);
     public Double getTaxAdditionalIncome(Income income);

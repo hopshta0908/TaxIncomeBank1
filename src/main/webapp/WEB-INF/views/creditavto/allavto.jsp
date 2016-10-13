@@ -19,7 +19,7 @@
 
     <div style="height: 100%">
         <div>
-            <c:forEach items="${creditavtos}" var="a">
+            <c:forEach items="${creditavto}" var="a">
 
                 <div class="col one_third gallery_box">
                     <div class="img_frame img_frame_13 img_nom"><span></span>

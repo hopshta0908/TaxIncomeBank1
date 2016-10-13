@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 import ua.lviv.lhz.repository.TaxRepo;
 import ua.lviv.lhz.services.TaxService;
 
+import java.util.List;
+
 /**
  * Created by Леся Гопшта on 16.07.2016.
  */
@@ -39,7 +41,12 @@ public class TaxServiceImpl implements TaxService {
        taxRepo.save(tax);
     }
 
-   // @Override
+    @Override
+    public List<Tax> findAll() {
+        return taxRepo.findAll();
+    }
+
+    // @Override
     //public Double getTaxMainIncome(Income income) {
     //   return null;
    //}

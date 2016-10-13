@@ -13,19 +13,21 @@
       <table id="4" parent="1" name="creditsc"/>
       <table id="5" parent="1" name="creditscz"/>
       <table id="6" parent="1" name="income"/>
-      <table id="7" parent="1" name="income_tax"/>
-      <table id="8" parent="1" name="tax"/>
-      <table id="9" parent="1" name="user"/>
-      <column id="10" parent="2" name="idCredit">
+      <table id="7" parent="1" name="tax"/>
+      <table id="8" parent="1" name="user"/>
+      <column id="9" parent="2" name="idCredit">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
         <sequence-identity>1</sequence-identity>
       </column>
-      <column id="11" parent="2" name="bankName">
+      <column id="10" parent="2" name="bankName">
         <data-type>varchar(255)</data-type>
       </column>
-      <column id="12" parent="2" name="collateral">
+      <column id="11" parent="2" name="collateral">
         <data-type>varchar(255)</data-type>
+      </column>
+      <column id="12" parent="2" name="image">
+        <data-type>longblob</data-type>
       </column>
       <column id="13" parent="2" name="monthFee">
         <data-type>double</data-type>
@@ -48,33 +50,33 @@
       <column id="19" parent="2" name="user_idUser">
         <data-type>int(11)</data-type>
       </column>
-      <column id="20" parent="2" name="image">
-        <data-type>longblob</data-type>
-      </column>
-      <index id="21" parent="2" name="FK_e77jlwbfasj9vumppcsokhe78">
+      <index id="20" parent="2" name="FK_e77jlwbfasj9vumppcsokhe78">
         <columns>user_idUser</columns>
         <desc-columns></desc-columns>
       </index>
-      <key id="22" parent="2" name="PRIMARY">
+      <key id="21" parent="2" name="PRIMARY">
         <columns>idCredit</columns>
         <primary>1</primary>
       </key>
-      <foreign-key id="23" parent="2" name="FK_e77jlwbfasj9vumppcsokhe78">
+      <foreign-key id="22" parent="2" name="FK_e77jlwbfasj9vumppcsokhe78">
         <columns>user_idUser</columns>
         <ref-key>~.user.PRIMARY</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>
-      <column id="24" parent="3" name="idCredit">
+      <column id="23" parent="3" name="idCredit">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
         <sequence-identity>1</sequence-identity>
       </column>
-      <column id="25" parent="3" name="bankName">
+      <column id="24" parent="3" name="bankName">
         <data-type>varchar(255)</data-type>
       </column>
-      <column id="26" parent="3" name="collateral">
+      <column id="25" parent="3" name="collateral">
         <data-type>varchar(255)</data-type>
+      </column>
+      <column id="26" parent="3" name="image">
+        <data-type>longblob</data-type>
       </column>
       <column id="27" parent="3" name="monthFee">
         <data-type>double</data-type>
@@ -232,118 +234,90 @@
       <column id="71" parent="6" name="transfersFromAbroad">
         <data-type>double</data-type>
       </column>
-      <column id="72" parent="6" name="user_idUser">
+      <column id="72" parent="6" name="tax_idTax">
         <data-type>int(11)</data-type>
       </column>
-      <index id="73" parent="6" name="FK_cr9ibfpqc8thuuve3jfnvud7j">
+      <column id="73" parent="6" name="user_idUser">
+        <data-type>int(11)</data-type>
+      </column>
+      <index id="74" parent="6" name="FK_3es9d0842uak5ysbjqrllw545">
+        <columns>tax_idTax</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="75" parent="6" name="FK_cr9ibfpqc8thuuve3jfnvud7j">
         <columns>user_idUser</columns>
         <desc-columns></desc-columns>
       </index>
-      <key id="74" parent="6" name="PRIMARY">
+      <key id="76" parent="6" name="PRIMARY">
         <columns>idIncome</columns>
         <primary>1</primary>
       </key>
-      <foreign-key id="75" parent="6" name="FK_cr9ibfpqc8thuuve3jfnvud7j">
-        <columns>user_idUser</columns>
-        <ref-key>~.user.PRIMARY</ref-key>
-        <cascade-update-rule>restrict</cascade-update-rule>
-        <cascade-delete-rule>restrict</cascade-delete-rule>
-      </foreign-key>
-      <column id="76" parent="7" name="idTax">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="77" parent="7" name="idIncome">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <index id="78" parent="7" name="FK_5se14v9teyqqkiyko8rd8fxm2">
-        <columns>idTax</columns>
-        <desc-columns></desc-columns>
-      </index>
-      <index id="79" parent="7" name="FK_l5y4pxfh9q9aham3mvwcunpgo">
-        <columns>idIncome</columns>
-        <desc-columns></desc-columns>
-      </index>
-      <foreign-key id="80" parent="7" name="FK_5se14v9teyqqkiyko8rd8fxm2">
-        <columns>idTax</columns>
+      <foreign-key id="77" parent="6" name="FK_3es9d0842uak5ysbjqrllw545">
+        <columns>tax_idTax</columns>
         <ref-key>~.tax.PRIMARY</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>
-      <foreign-key id="81" parent="7" name="FK_l5y4pxfh9q9aham3mvwcunpgo">
-        <columns>idIncome</columns>
-        <ref-key>~.income.PRIMARY</ref-key>
-        <cascade-update-rule>restrict</cascade-update-rule>
-        <cascade-delete-rule>restrict</cascade-delete-rule>
-      </foreign-key>
-      <column id="82" parent="8" name="idTax">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-        <sequence-identity>1</sequence-identity>
-      </column>
-      <column id="83" parent="8" name="taxAdditionalIncome">
-        <data-type>double</data-type>
-      </column>
-      <column id="84" parent="8" name="taxBenefitsForChildren">
-        <data-type>double</data-type>
-      </column>
-      <column id="85" parent="8" name="taxFinancialAid">
-        <data-type>double</data-type>
-      </column>
-      <column id="86" parent="8" name="taxGift">
-        <data-type>double</data-type>
-      </column>
-      <column id="87" parent="8" name="taxIncomeOfSaleOfProperty">
-        <data-type>double</data-type>
-      </column>
-      <column id="88" parent="8" name="taxMainIncome">
-        <data-type>double</data-type>
-      </column>
-      <column id="89" parent="8" name="taxRoyalty">
-        <data-type>double</data-type>
-      </column>
-      <column id="90" parent="8" name="taxTransfersFromAbroad">
-        <data-type>double</data-type>
-      </column>
-      <column id="91" parent="8" name="user_idUser">
-        <data-type>int(11)</data-type>
-      </column>
-      <index id="92" parent="8" name="FK_7uq3c6yu0yqq525r69mqf88ue">
-        <columns>user_idUser</columns>
-        <desc-columns></desc-columns>
-      </index>
-      <key id="93" parent="8" name="PRIMARY">
-        <columns>idTax</columns>
-        <primary>1</primary>
-      </key>
-      <foreign-key id="94" parent="8" name="FK_7uq3c6yu0yqq525r69mqf88ue">
+      <foreign-key id="78" parent="6" name="FK_cr9ibfpqc8thuuve3jfnvud7j">
         <columns>user_idUser</columns>
         <ref-key>~.user.PRIMARY</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>
-      <column id="95" parent="9" name="idUser">
+      <column id="79" parent="7" name="idTax">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
         <sequence-identity>1</sequence-identity>
       </column>
-      <column id="96" parent="9" name="email">
+      <column id="80" parent="7" name="taxAdditionalIncome">
+        <data-type>double</data-type>
+      </column>
+      <column id="81" parent="7" name="taxBenefitsForChildren">
+        <data-type>double</data-type>
+      </column>
+      <column id="82" parent="7" name="taxFinancialAid">
+        <data-type>double</data-type>
+      </column>
+      <column id="83" parent="7" name="taxGift">
+        <data-type>double</data-type>
+      </column>
+      <column id="84" parent="7" name="taxIncomeOfSaleOfProperty">
+        <data-type>double</data-type>
+      </column>
+      <column id="85" parent="7" name="taxMainIncome">
+        <data-type>double</data-type>
+      </column>
+      <column id="86" parent="7" name="taxRoyalty">
+        <data-type>double</data-type>
+      </column>
+      <column id="87" parent="7" name="taxTransfersFromAbroad">
+        <data-type>double</data-type>
+      </column>
+      <key id="88" parent="7" name="PRIMARY">
+        <columns>idTax</columns>
+        <primary>1</primary>
+      </key>
+      <column id="89" parent="8" name="idUser">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="90" parent="8" name="email">
         <data-type>varchar(255)</data-type>
       </column>
-      <column id="97" parent="9" name="name">
+      <column id="91" parent="8" name="name">
         <data-type>varchar(255)</data-type>
       </column>
-      <column id="98" parent="9" name="password">
+      <column id="92" parent="8" name="password">
         <data-type>varchar(255)</data-type>
       </column>
-      <column id="99" parent="9" name="phone">
+      <column id="93" parent="8" name="phone">
         <data-type>varchar(255)</data-type>
       </column>
-      <column id="100" parent="9" name="surname">
+      <column id="94" parent="8" name="surname">
         <data-type>varchar(255)</data-type>
       </column>
-      <key id="101" parent="9" name="PRIMARY">
+      <key id="95" parent="8" name="PRIMARY">
         <columns>idUser</columns>
         <primary>1</primary>
       </key>
